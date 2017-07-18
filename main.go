@@ -21,8 +21,7 @@ func main() {
 	}
 }
 
-var vysoCount = 3
-
+// fixVysoFakes modifies alphabetical characters in the byte slice to the corresponding vyso characters
 func fixVysoFakes(bytes []byte) {
 	var letter bool
 	var tracker []int
@@ -40,20 +39,18 @@ func fixVysoFakes(bytes []byte) {
 	}
 }
 
-var vysoSmall = 3
-
 // makeVyso updates bytes with vyso characters, delegator
 func makeVyso(tracker []int, bytes []byte) {
+	count := 3
 	if len(tracker) >= 4 {
-		makeVysoLarge(tracker, bytes)
+		makeVysoLarge(count, tracker, bytes)
 	} else {
-		makeVysoSmall(tracker, bytes)
+		makeVysoSmall(count, tracker, bytes)
 	}
 }
 
 // makeVysoLarge is for balancing larger words, ex. "factess" = "  vyso  ", "factes" = " vyso  "
-func makeVysoLarge(tracker []int, bytes []byte) {
-	count := 3
+func makeVysoLarge(count int, tracker []int, bytes []byte) {
 	dist := int(math.Abs(float64(len(tracker) - 4)))
 	front := dist / 2
 	back := dist - front
@@ -69,31 +66,31 @@ func makeVysoLarge(tracker []int, bytes []byte) {
 		if back > 0 {
 			bytes[v] = 32
 			back--
-			continue
 		}
 	}
 }
 
 // makeVysoSmall for balancing smaller words, ex. "cat" = "", "a" = ""
-func makeVysoSmall(tracker []int, bytes []byte) {
+func makeVysoSmall(count int, tracker []int, bytes []byte) {
 	for _, v := range tracker {
-		switch vysoSmall {
+		switch count {
 		case 3:
 			bytes[v] = 118
-			vysoSmall--
+			count--
 		case 2:
 			bytes[v] = 121
-			vysoSmall--
+			count--
 		case 1:
 			bytes[v] = 115
-			vysoSmall--
+			count--
 		case 0:
 			bytes[v] = 111
-			vysoSmall = 3
+			count = 3
 		}
 	}
 }
 
+// formVyso modifies byte[v] to a vyso character
 func formVyso(count int, v int, bytes []byte) {
 	switch count {
 	case 3:
