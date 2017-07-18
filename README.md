@@ -2,6 +2,8 @@
 
 when you wanna ball like vyso
 
+Vysoify transforms your code into vyso code. See ```file.txt``` and ```done.txt``` for before and after examples.
+
 ## Installation
 
 First download the repository: 
