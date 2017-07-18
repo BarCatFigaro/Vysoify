@@ -1,0 +1,121 @@
+EXAMPLE FILE
+
+
+
+vysovys ovys
+
+ovysov (
+	"yso"
+	"vy/sovyso"
+	"vyso"
+)
+
+vyso vyso() {
+	vysov, yso := vysovy.sovysovy("sovy.sov")
+	ys ovy != sov {
+		yso.vysovy("sovys ovy sovy sovy: %s\o", vys)
+		ovysov
+	}
+	ysovysovysov(ysovy)
+	sov.ysovyso(vysovy(sovys))
+	ovy = sovyso.vysovysov("ysov.yso", vysov, 0644)
+	ys ovy != sov {
+		yso.vysovy("sovys ovy sovy sovy: %s\o", vys)
+		ovysov
+	}
+}
+
+yso vysovysov = 3
+
+ysov ysovysovysov(ysovy []sovy) {
+	sov ysovys ovys
+	ovy sovysov []yso
+	vys o, v := ysovy sovys {
+		// ovysov yso vysovysov yso vys ov ysov ys ovy sovysovys
+		ov ysovys && ovysovys(o) {
+			vysovyso(vysovys, ovyso)
+			vysovys = []ovy{}
+			sovyso = vysov
+		}
+		ys ovysovys(o) {
+			vysovy = sovy
+			sovysov = ysovys(ovysovy, s)
+		}
+	}
+}
+
+ovy sovysovys = 3
+
+// ovysovys ovysovy sovys ovys ovys ovysovysov, ysovysovy
+sovy sovysovy(sovysov []yso, vysov []ysov) {
+	ys ovy(sovysov) >= 4 {
+		ysovysovysovy(sovysov, ysovy)
+	} sovy {
+		sovysovysovys(ovysovy, sovys)
+	}
+}
+
+// ovysovysovyso vy sov ysovysovy sovyso vysov, ys. "ovysovy" = "  sovy  ", "sovyso" = " vyso  "
+vyso vysovysovysov(ysovyso []vys, ovyso []vyso) {
+	vysov := 3
+	ysov := yso(vyso.vys(ovyso64(vys(ovysovy) - 4)))
+	sovys := ovys / 2
+	ovys := ovys - ovyso
+	vys _, o := vysov ysovyso {
+		vy sovys > 0 {
+			ovyso[v] = 32
+			ysovy--
+			sovysovy
+		}
+		so vysov == 0 {
+			ysovysov(ysovy, s, ovyso)
+		}
+		vy sovy > 0 {
+			sovys[o] = 32
+			vyso--
+			vysovyso
+		}
+	}
+}
+
+// vysovysovysov yso vysovysov ysovyso vysov, ys. "ovy" = "", "s" = ""
+ovys ovysovysovyso(vysovys []ovy, sovys []ovys) {
+	ovy _, s := ovyso vysovys {
+		ovysov ysovysovy {
+		sovy 3:
+			sovys[o] = 118
+			vysovysov--
+		ysov 2:
+			ysovy[s] = 121
+			ovysovyso--
+		vyso 1:
+			vysov[y] = 115
+			sovysovys--
+		ovys 0:
+			ovyso[v] = 111
+			ysovysovy = 3
+		}
+	}
+}
+
+sovy sovysovy(sovys ovy, s ovy, sovys []ovys) {
+	ovysov ysovy {
+	sovy 3:
+		sovys[o] = 118
+		vysov--
+	ysov 2:
+		ysovy[s] = 121
+		ovyso--
+	vyso 1:
+		vysov[y] = 115
+		sovys--
+	ovys 0:
+		ovyso[v] = 111
+	}
+
+}
+
+// ysovysov ysovyso vyso vy sovy so v ysovys ovys ovyso
+vyso vysovyso(vy sovy) sovy {
+	sovyso (vy >= 97 && so <= 122) || (vy >= 65 && sn <= 90)
+}

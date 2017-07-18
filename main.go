@@ -1,0 +1,117 @@
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"math"
+)
+
+func main() {
+	bytes, err := ioutil.ReadFile("file.txt")
+	if err != nil {
+		fmt.Printf("could not read file: %v\n", err)
+		return
+	}
+	fixVysoFakes(bytes)
+	fmt.Println(string(bytes))
+	err = ioutil.WriteFile("done.txt", bytes, 0644)
+	if err != nil {
+		fmt.Printf("could not make file: %v\n", err)
+		return
+	}
+}
+
+var vysoCount = 3
+
+func fixVysoFakes(bytes []byte) {
+	var letter bool
+	var tracker []int
+	for k, b := range bytes {
+		// modify the beginning and end of part we are searching
+		if letter && isLetter(b) {
+			makeVyso(tracker, bytes)
+			tracker = []int{}
+			letter = false
+		}
+		if isLetter(b) {
+			letter = true
+			tracker = append(tracker, k)
+		}
+	}
+}
+
+var vysoSmall = 3
+
+// makeVyso updates bytes with vyso characters, delegator
+func makeVyso(tracker []int, bytes []byte) {
+	if len(tracker) >= 4 {
+		makeVysoLarge(tracker, bytes)
+	} else {
+		makeVysoSmall(tracker, bytes)
+	}
+}
+
+// makeVysoLarge is for balancing larger words, ex. "factess" = "  vyso  ", "factes" = " vyso  "
+func makeVysoLarge(tracker []int, bytes []byte) {
+	count := 3
+	dist := int(math.Abs(float64(len(tracker) - 4)))
+	front := dist / 2
+	back := dist - front
+	for _, v := range tracker {
+		if front > 0 {
+			bytes[v] = 32
+			front--
+			continue
+		}
+		if front == 0 {
+			formVyso(count, v, bytes)
+		}
+		if back > 0 {
+			bytes[v] = 32
+			back--
+			continue
+		}
+	}
+}
+
+// makeVysoSmall for balancing smaller words, ex. "cat" = "", "a" = ""
+func makeVysoSmall(tracker []int, bytes []byte) {
+	for _, v := range tracker {
+		switch vysoSmall {
+		case 3:
+			bytes[v] = 118
+			vysoSmall--
+		case 2:
+			bytes[v] = 121
+			vysoSmall--
+		case 1:
+			bytes[v] = 115
+			vysoSmall--
+		case 0:
+			bytes[v] = 111
+			vysoSmall = 3
+		}
+	}
+}
+
+func formVyso(count int, v int, bytes []byte) {
+	switch count {
+	case 3:
+		bytes[v] = 118
+		count--
+	case 2:
+		bytes[v] = 121
+		count--
+	case 1:
+		bytes[v] = 115
+		count--
+	case 0:
+		bytes[v] = 111
+	}
+
+}
+
+// isLetter returns true if byte is a letter else false
+func isLetter(in byte) bool {
+	return (in >= 97 && in <= 122) || (in >= 65 && in <= 90)
+}
